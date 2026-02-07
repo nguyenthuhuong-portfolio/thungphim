@@ -8,6 +8,7 @@ interface MovieProps {
   data: {
     title: string;
     original_name?: string;
+    thumb: string;
     poster: string;
     year: number;
     quality: string;
