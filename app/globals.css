@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-background: #0f0f13;
+  --color-foreground: #ededed;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Hiệu ứng số xếp hạng rỗng ruột */
+@utility text-outline {
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3);
+  color: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Đổ bóng sâu để số nổi bật hẳn lên trên Poster */
+@utility number-shadow {
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 1), 0 0 20px rgba(0,0,0,0.8);
+}
+
+@utility scrollbar-hide {
+  &::-webkit-scrollbar {
+    display: none;
   }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0f0f13;
+  color: #ededed;
+  user-select: none;
+}
+
+/* Cho phép card "nổi" lên trên mà không bị cắt */
+section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  position: relative;
+  overflow: visible !important;
 }
